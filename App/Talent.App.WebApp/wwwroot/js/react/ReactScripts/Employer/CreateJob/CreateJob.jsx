@@ -138,7 +138,7 @@ export default class CreateJob extends React.Component {
                         <div className="ui grid">
                             <div className="row">
                                 <div className="sixteen wide center aligned padded column">
-                                    <h1>Create Job</h1>
+                                {this.state.jobData.id != "" ? <h1> Edit Job</h1> : <h1> Create Job</h1>}
                                 </div>
                             </div>
 
