@@ -115,9 +115,6 @@ export default class ManageJob extends React.Component {
         dataType: "json",
         success: function (res) {
             let employerJobs = null;
-            //alert(res.MyJobs);
-            console.log("result", res)
-            console.log(`totalPages ${Math.ceil(res.totalCount / 6)}`);
             if (res.myJobs) {
                 employerJobs = res.myJobs
                 console.log("employerJobs", employerJobs)
@@ -183,11 +180,17 @@ export default class ManageJob extends React.Component {
         this.loadNewData(data); 
     }
     
-    onChechboxChange(event, data){
-        const {filter} = this.state;
-        filter[data.label] = !this.state.filter[data.label];
-        this.setState({filter})
-        this.init()
+    onChechboxChange(dataLabel){
+        //because you are changing the selection of jobs, makes sense that you restarting from page 1
+        const data = Object.assign({}, this.state);
+        const activePage = 1;
+        data.filter[dataLabel] = !this.state.filter[dataLabel];
+        data['activePage'] = activePage;
+        this.setState({
+            activePage: activePage,
+            filter: data.filter
+        });
+        this.loadNewData(data); 
     }
 
     render() {
@@ -200,17 +203,14 @@ export default class ManageJob extends React.Component {
                <div className ="ui container">
                    <i className="filter icon"></i>
                    Filter:
-                   {/* <JobFilter
-                        filter={this.state.filter}
-                        handleChange={this.updateFilter}
-                    /> */}
                     <Dropdown
                         multiple
                         simple
                         item
                         inline
                         text='Choose Filter'
-                        options={sortOptions.map((opt)=><Dropdown.Item key={opt.key}><Checkbox  onChange={(event, data)=>this.onChechboxChange(event,data)}label={opt.key} defaultChecked={opt.value}/></Dropdown.Item>)}
+                        // options={sortOptions.map((opt)=><Dropdown.Item key={opt.key}><Checkbox  onChange={(event, data)=>this.onChechboxChange(event,data)}label={opt.key} defaultChecked={opt.value}/></Dropdown.Item>)}
+                        options={sortOptions.map((opt)=><Dropdown.Item key={opt.key}><Checkbox  onChange={(event, data)=>this.onChechboxChange(data.label)} label={opt.key} defaultChecked={opt.value}/></Dropdown.Item>)}
                     />
                    <i className="calendar alternate outline icon"></i>
                    Sort by date: 
@@ -226,23 +226,15 @@ export default class ManageJob extends React.Component {
                         ))}
                     </div>
                     <br/>
+                    <div className ="ui container">
+                        { this.state.loadJobs.length > 0 ? 
+                        <Pagination className ="ui justify-content-center"   
+                            activePage={this.state.activePage}
+                            totalPages={this.state.totalPages}
+                            onPageChange={(event, data) => this.paginate(data.activePage)}
+                        /> : "" }                  
+                    </div>                  
                 </div>
-                <div className ="ui container">
-                    { this.state.loadJobs.length > 0 ? 
-                    <Pagination className="d-flex justify-content-center"
-                        activePage={this.state.activePage}
-                        totalPages={this.state.totalPages}
-                        onPageChange={(event, data) => this.paginate(data.activePage)}
-                    /> : "" }                  
-                </div>                  
-                {/* <div className="sixteen wide center aligned padded column">
-                    { this.state.loadJobs.length > 0 ? 
-                        <Pagination className="d-flex justify-content-center"
-                        activePage={this.state.activePage}
-                        totalPages={this.state.totalPages}
-                        onPageChange={(event, data) => this.paginate(data.activePage)}
-                        /> : "" }                                    
-                </div> */}
             </BodyWrapper>
         )
     }

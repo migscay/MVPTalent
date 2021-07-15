@@ -72,12 +72,10 @@ export class JobSummaryCard extends React.Component {
                         </div>
                         <div className="extra content">
                             <div className="four buttons">
-                                {/* {this.state.expired ? <Button color="red" className="left floated" disabled="true">Expired</Button>                                
-                                    : '' }  */}
                                 <button type="button" className="ui right floated red button disabled"><i className="dont icon"></i>Closed</button>                               
-                                <div className="right floated ui basic button disabled"><i className="edit icon"></i>Edit</div>
-                                <div className="right floated ui basic button"><i className="copy outline icon"></i>Copy</div>
-                                {this.state.expired ? <button type="button" className="ui red button">Expired</button>                                
+                                <button type="button" className="right floated ui basic button disabled"><i className="edit icon"></i>Edit</button>
+                                <button type="button" className="right floated ui basic button"><i className="copy outline icon"></i>Copy</button>
+                                {this.state.expired ? <button type="button" className="ui red button disabled">Expired</button>                                
                                     : '' } 
     
                             </div>
@@ -106,8 +104,6 @@ export class JobSummaryCard extends React.Component {
                         </div>
                         <div className="extra content">
                             <div className="four buttons">
-                                {/* {this.state.expired ? <Button color="red" className="left floated" disabled="true">Expired</Button>                                
-                                    : '' }  */}
                                 <Popup trigger={<button type="button" className="ui right floated button"><i className="dont icon"></i>Close</button>} flowing hoverable>
                                     <Grid centered divided columns={2}>
                                         <Grid.Column textAlign='center'>
@@ -117,8 +113,8 @@ export class JobSummaryCard extends React.Component {
                                     </Grid>
                                 </Popup>
                                 <a class="right floated ui basic button" href={`/EditJob/${this.props.employerJob.id}`}><i className="edit icon"></i>Edit</a>
-                                <div className="right floated ui basic button"><i className="copy outline icon"></i>Copy</div>
-                                {this.state.expired ? <button type="button" className="ui red button">Expired</button>                                
+                                <button type="button" className="right floated ui basic button"><i className="copy outline icon"></i>Copy</button>
+                                {this.state.expired ? <button type="button" className="ui red button disabled">Expired</button>                                
                                     : '' } 
     
                             </div>
