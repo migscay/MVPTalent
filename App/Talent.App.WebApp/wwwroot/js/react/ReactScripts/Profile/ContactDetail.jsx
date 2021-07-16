@@ -10,7 +10,7 @@ export class IndividualDetailSection extends Component {
             Object.assign({}, props.details)
             : {
                 firstName: "",
-                // Task1.10.07.2021 add lastName 
+                // Task1.10.07.2021 add lastName
                 lastName: "",
                 email: "",
                 phone: ""

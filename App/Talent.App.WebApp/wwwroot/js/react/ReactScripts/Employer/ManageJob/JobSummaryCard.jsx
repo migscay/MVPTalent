@@ -46,13 +46,13 @@ export class JobSummaryCard extends React.Component {
         }.bind(this),
         error: function (res) {
             TalentUtil.notification.show("Error while closing Job", "error", null, null);
+            // callback();
         }
         })     
 }
 
     render() {
 
-        // MOS TASK2 Implementation JobSummaryCard  
         if (this.state.closed) {
             return (
                 <div className="ui wide card">
