@@ -188,6 +188,7 @@ export default class ManageJob extends React.Component {
         
         return (
             <BodyWrapper reload={this.init} loaderData={this.state.loaderData}>
+                {/* MOS TASK2 Implementation listing Jobs with JobSummaryCard    */}
                <div className ="ui container">List of Jobs</div>
                <div className ="ui container">
                    <i className="filter icon"></i>
