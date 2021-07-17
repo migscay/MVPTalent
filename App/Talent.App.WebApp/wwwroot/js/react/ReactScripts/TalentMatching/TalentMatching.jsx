@@ -81,24 +81,24 @@ export default class TalentMatching extends React.Component {
     //        });
     //}
 
-    //loadJobs(data) { // url: 'http://mvptalentt.azurewebsites.net/listing/listing/getEmployerJobs',
+    //loadJobs(data) { // url: 'http://localhost:51689/listing/listing/getEmployerJobs',
         
-    //loadSelectedJob(data) url: 'http://mvptalentt.azurewebsites.net/listing/listing/getJobForTalentMatching',
+    //loadSelectedJob(data) url: 'http://localhost:51689/listing/listing/getJobForTalentMatching',
 
-    //loadTalentList()  url: 'http://mvptalentp.azurewebsites.net/profile/profile/getTalentList',
+    //loadTalentList()  url: 'http://localhost:60298/profile/profile/getTalentList',
 
-    //loadTalentFilterList() //url: 'http://mvptalentp.azurewebsites.net/profile/profile/getTalentListFilter',
+    //loadTalentFilterList() //url: 'http://localhost:60298/profile/profile/getTalentListFilter',
 
-    //loadEmployerFilterList() //url: 'http://mvptalentp.azurewebsites.net/profile/profile/getEmployerListFilter',
+    //loadEmployerFilterList() //url: 'http://localhost:60298/profile/profile/getEmployerListFilter',
 
 
-    // loadEmployerList() // url: 'http://mvptalentp.azurewebsites.net/profile/profile/getEmployerList',
-    //loadSuggestionList   url: 'http://mvptalentp.azurewebsites.net/profile/profile/getSuggestionList',
+    // loadEmployerList() // url: 'http://localhost:60298/profile/profile/getEmployerList',
+    //loadSuggestionList   url: 'http://localhost:60298/profile/profile/getSuggestionList',
 
-   // saveCompanyTalents()   url: 'http://mvptalentp.azurewebsites.net/profile/profile/addTalentSuggestions',
+   // saveCompanyTalents()   url: 'http://localhost:60298/profile/profile/addTalentSuggestions',
      
 
-    //saveJobTalents()    url: 'http://mvptalentp.azurewebsites.net/profile/profile/addTalentSuggestions',
+    //saveJobTalents()    url: 'http://localhost:60298/profile/profile/addTalentSuggestions',
        
 
     
