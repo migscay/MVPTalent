@@ -39,8 +39,7 @@ export default class ManageJob extends React.Component {
         //your functions go here
         this.handleChange = this.handleChange.bind(this);
         this.updateSortBy = this.updateSortBy.bind(this);
-        this.updateFilter = this.updateFilter.bind(this);
-
+        this.onChechboxChange = this.onChechboxChange.bind(this);
     };
 
     handleChange(event) {
@@ -92,7 +91,7 @@ export default class ManageJob extends React.Component {
     };
 
     loadData(callback) {
-        var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
+        var link = 'http://mvptalentt.azurewebsites.net/listing/listing/getSortedEmployerJobs';
         var cookies = Cookies.get('talentAuthToken');
        // your ajax call and other logic goes here
        $.ajax({ 
@@ -149,34 +148,25 @@ export default class ManageJob extends React.Component {
 
     //Task 2 07/12/2021 passed down to JobSortingByDate to update the state.sortBy
     updateSortBy(event) {
-        console.log(`ManageJobs.updateSortby ${event.target.name} ${event.target.value}`)
         const data = Object.assign({}, this.state)
+        //because you are changing the selection of jobs, makes sense that you restarting from page 1
+        const activePage = 1;
+        data['activePage'] = activePage
         data[event.target.name] = event.target.value
         this.setState({
+            activePage: activePage,
             sortBy: data 
         })
         this.loadNewData(data); 
-    }
-
-    //Task 2 07/13/2021 passed down to JobFilter to update the state.filter
-    updateFilter(event) {
-        console.log(`ManageJobs.updateSortby ${event.target.name} ${event.target.value}`)
-        const data = Object.assign({}, this.state)
-        data[event.target.name] = event.target.value
-        this.setState({
-            filter: data 
-        })
     }
 
     // Change page
     paginate(activePage) {
         const data = Object.assign({}, this.state)
         data['activePage'] = activePage
-        console.log(`activepage  ${this.state.activePage}`)
         this.setState({
             activePage: activePage
         })
-        console.log(`activepage  ${this.state.activePage}`)
         this.loadNewData(data); 
     }
     
@@ -209,7 +199,6 @@ export default class ManageJob extends React.Component {
                         item
                         inline
                         text='Choose Filter'
-                        // options={sortOptions.map((opt)=><Dropdown.Item key={opt.key}><Checkbox  onChange={(event, data)=>this.onChechboxChange(event,data)}label={opt.key} defaultChecked={opt.value}/></Dropdown.Item>)}
                         options={sortOptions.map((opt)=><Dropdown.Item key={opt.key}><Checkbox  onChange={(event, data)=>this.onChechboxChange(data.label)} label={opt.key} defaultChecked={opt.value}/></Dropdown.Item>)}
                     />
                    <i className="calendar alternate outline icon"></i>
