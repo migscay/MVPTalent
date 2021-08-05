@@ -13639,11 +13639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Services.Profile\\Talent.Services.Profile.csproj",
+      "projectUniqueName": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Services.Profile\\Talent.Services.Profile.csproj",
       "projectName": "Talent.Services.Profile",
-      "projectPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Services.Profile\\Talent.Services.Profile.csproj",
+      "projectPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Services.Profile\\Talent.Services.Profile.csproj",
       "packagesPath": "C:\\Users\\popey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Services.Profile\\obj\\",
+      "outputPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Services.Profile\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\popey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -13660,8 +13660,8 @@
         "netcoreapp2.0": {
           "targetAlias": "netcoreapp2.0",
           "projectReferences": {
-            "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj": {
-              "projectPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj"
+            "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj": {
+              "projectPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj"
             }
           }
         }

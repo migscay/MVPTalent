@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj": {}
+    "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj": {
+    "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj",
+        "projectUniqueName": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj",
         "projectName": "Talent.Common",
-        "projectPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\Talent.Common.csproj",
+        "projectPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\Talent.Common.csproj",
         "packagesPath": "C:\\Users\\popey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Common\\obj\\",
+        "outputPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\popey\\AppData\\Roaming\\NuGet\\NuGet.Config",

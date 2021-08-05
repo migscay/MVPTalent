@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r++AAvECJOsICUDoIulnkUVpf2lbuiqSJwsjdf3kSvr0A9Bsx8g0299ibiF7wC/1fBTLxp5s4dqz7WFWeWhy2A==",
+  "dgSpecHash": "y31Y6tsGvQ04zZN5LnGg1jIWVscnvcz/9X+3OE+Ma+C+PammuDyqO7+HOnYLug9KemYu/WrfmYkDY5NJ5rZj0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\popey\\source\\repos\\talent-competition\\Talent.Api\\Talent.Api.csproj",
+  "projectFilePath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\Talent.Api\\Talent.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\popey\\.nuget\\packages\\awssdk.core\\3.3.24\\awssdk.core.3.3.24.nupkg.sha512",
     "C:\\Users\\popey\\.nuget\\packages\\awssdk.s3\\3.3.18.3\\awssdk.s3.3.3.18.3.nupkg.sha512",

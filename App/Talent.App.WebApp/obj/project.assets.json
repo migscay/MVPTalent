@@ -13156,11 +13156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\popey\\source\\repos\\talent-competition\\App\\Talent.App.WebApp\\Talent.App.WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\popey\\source\\repos\\MVPTalent\\App\\Talent.App.WebApp\\Talent.App.WebApp.csproj",
       "projectName": "Talent.App.WebApp",
-      "projectPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\App\\Talent.App.WebApp\\Talent.App.WebApp.csproj",
+      "projectPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\App\\Talent.App.WebApp\\Talent.App.WebApp.csproj",
       "packagesPath": "C:\\Users\\popey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\popey\\source\\repos\\talent-competition\\App\\Talent.App.WebApp\\obj\\",
+      "outputPath": "C:\\Users\\popey\\source\\repos\\MVPTalent\\App\\Talent.App.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\popey\\AppData\\Roaming\\NuGet\\NuGet.Config",
