@@ -19,6 +19,8 @@ namespace Talent.Services.Profile.Domain.Services
     {
         private readonly IUserAppContext _userAppContext;
         IRepository<UserLanguage> _userLanguageRepository;
+        IRepository<UserSkill> _userSkillRepository; //MOS24072021 added for standard task module 1
+        IRepository<UserExperience> _userExperienceRepository; //MOS24072021 added for standard task module 1
         IRepository<User> _userRepository;
         IRepository<Employer> _employerRepository;
         IRepository<Job> _jobRepository;
@@ -28,6 +30,8 @@ namespace Talent.Services.Profile.Domain.Services
 
         public ProfileService(IUserAppContext userAppContext,
                               IRepository<UserLanguage> userLanguageRepository,
+                              IRepository<UserSkill> userSkillRepository,    //MOS24072021 added for standard task module 1
+                              IRepository<UserExperience> userExperienceRepository,    //MOS24072021 added for standard task module 1
                               IRepository<User> userRepository,
                               IRepository<Employer> employerRepository,
                               IRepository<Job> jobRepository,
@@ -36,6 +40,8 @@ namespace Talent.Services.Profile.Domain.Services
         {
             _userAppContext = userAppContext;
             _userLanguageRepository = userLanguageRepository;
+            _userSkillRepository = userSkillRepository;    //MOS24072021 added for standard task module 1
+            _userExperienceRepository = userExperienceRepository;    //MOS24072021 added for standard task module 1
             _userRepository = userRepository;
             _employerRepository = employerRepository;
             _jobRepository = jobRepository;
@@ -51,8 +57,62 @@ namespace Talent.Services.Profile.Domain.Services
 
         public async Task<TalentProfileViewModel> GetTalentProfile(string Id)
         {
+            //MOS21072921 added for standard task module 1
+            User profile = null;
+            profile = (await _userRepository.GetByIdAsync(Id));
+            if (profile != null)
+            {
+                var languages = await _userLanguageRepository.Get(x => x.UserId == profile.Id && !x.IsDeleted);
+                var currentUserLanguages = languages.Select(x => ViewModelFromLanguage(x)).ToList();
+
+                var skills = await _userSkillRepository.Get(x => x.UserId == profile.Id && !x.IsDeleted);
+                var currentUserSkills = skills.Select(x => ViewModelFromSkill(x)).ToList();
+
+                var experiences = await _userExperienceRepository.Get(x => x.UserId == profile.Id && !x.IsDeleted);
+                var currentUserExperiences = experiences.Select(x => ExperienceViewModel(x)).ToList();
+
+                profile.ProfilePhotoUrl = string.IsNullOrWhiteSpace(profile.ProfilePhoto)
+                          ? ""
+                          : await _fileService.GetFileURL(profile.ProfilePhoto, FileType.ProfilePhoto);
+
+                var result = new TalentProfileViewModel
+                {
+                    Id = profile.Id,
+                    FirstName = profile.FirstName,
+                    MiddleName = profile.MiddleName,
+                    LastName = profile.LastName,
+                    Gender = profile.Gender,
+                    Email = profile.Email,
+                    Phone = profile.Phone,
+                    MobilePhone = profile.MobilePhone,
+                    IsMobilePhoneVerified = profile.IsMobilePhoneVerified,
+                    Address = profile.Address,
+                    Nationality = profile.Nationality,
+                    VisaStatus = profile.VisaStatus,
+                    VisaExpiryDate = profile.VisaExpiryDate,
+                    ProfilePhoto = profile.ProfilePhoto,
+                    ProfilePhotoUrl = profile.ProfilePhotoUrl,
+                    VideoName = profile.VideoName,
+                    //VideoUrl = profile.videoUrl,
+                    CvName = profile.CvName,
+                    //CvUrl = profile.CvUrl,
+                    Summary = profile.Summary,
+                    Description = profile.Description,
+                    LinkedAccounts = profile.LinkedAccounts,
+                    JobSeekingStatus = profile.JobSeekingStatus,
+                    Languages = currentUserLanguages,
+                    Skills = currentUserSkills,
+                    //Education = currentUserEducation,
+                    //Certifications = currentUserCertification,
+                    Experience = currentUserExperiences
+                };
+                return result;
+            }
+
             //Your code here;
-            throw new NotImplementedException();
+            //MOS21072921 replaced for standard task module 1
+            //throw new NotImplementedException();
+            return null;
         }
 
         public async Task<bool> UpdateTalentProfile(TalentProfileViewModel model, string updaterId)
@@ -330,6 +390,45 @@ namespace Talent.Services.Profile.Domain.Services
                 Id = skill.Id,
                 Level = skill.ExperienceLevel,
                 Name = skill.Skill
+            };
+        }
+
+        //MOS24072021 added for strandard task module 1
+        protected AddLanguageViewModel ViewModelFromLanguage(UserLanguage language)
+        {
+            return new AddLanguageViewModel
+            {
+                Id = language.Id,
+                Level = language.LanguageLevel,
+                Name = language.Language
+            };
+        }
+
+        //MOS27072021 added for strandard task module 1
+        protected ExperienceViewModel ExperienceViewModel(UserExperience experience)
+        {
+            return new ExperienceViewModel
+            {
+
+                Id = experience.Id,
+                Company = experience.Company,
+                Position = experience.Position,
+                Responsibilities = experience.Responsibilities,
+                Start = experience.Start,
+                End = experience.End
+            };
+        }
+
+        //MOS28072021 added for strandard task module 1
+        protected AddCertificationViewModel CertificationViewModel(UserCertification certification)
+        {
+            return new AddCertificationViewModel
+            {
+
+                Id = certification.Id,
+                CertificationName = certification.CertificationName,
+                CertificationFrom = certification.CertificationFrom,
+                CertificationYear = certification.CertificationYear
             };
         }
 

@@ -36,6 +36,7 @@ namespace Talent.Services.Profile.Controllers
         private readonly IRepository<UserDescription> _personDescriptionRespository;
         private readonly IRepository<UserAvailability> _userAvailabilityRepository;
         private readonly IRepository<UserSkill> _userSkillRepository;
+        private readonly IRepository<UserExperience> _userExperienceRepository;    //MOS24072021 added for standard task module 1
         private readonly IRepository<UserEducation> _userEducationRepository;
         private readonly IRepository<UserCertification> _userCertificationRepository;
         private readonly IRepository<UserLocation> _userLocationRepository;
@@ -54,6 +55,7 @@ namespace Talent.Services.Profile.Controllers
             IRepository<UserDescription> personDescriptionRepository,
             IRepository<UserAvailability> userAvailabilityRepository,
             IRepository<UserSkill> userSkillRepository,
+            IRepository<UserExperience> userExperienceRepository,    //MOS24072021 added for standard task module 1
             IRepository<UserEducation> userEducationRepository,
             IRepository<UserCertification> userCertificationRepository,
             IRepository<UserLocation> userLocationRepository,
@@ -73,6 +75,7 @@ namespace Talent.Services.Profile.Controllers
             _userLanguageRepository = userLanguageRepository;
             _userAvailabilityRepository = userAvailabilityRepository;
             _userSkillRepository = userSkillRepository;
+            _userExperienceRepository = userExperienceRepository;    //MOS24072021 added for standard task module 1
             _userEducationRepository = userEducationRepository;
             _userCertificationRepository = userCertificationRepository;
             _userLocationRepository = userLocationRepository;

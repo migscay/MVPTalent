@@ -149,8 +149,8 @@ export default class AccountProfile extends React.Component {
                                         >
                                             <SocialMediaLinkedAccount
                                                 linkedAccounts={this.state.profileData.linkedAccounts}
-                                                updateProfileData={this.updateWithoutSave}
-                                                saveProfileData={this.updateAndSaveData}
+                                                saveProfileData={this.updateForComponentId}
+                                                componentId='linkedAccounts'
                                             />
                                         </FormItemWrapper>
                                         <FormItemWrapper
